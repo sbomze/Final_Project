@@ -10,43 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106202923) do
+ActiveRecord::Schema.define(version: 20170517183537) do
 
-  create_table "actors", force: :cascade do |t|
-    t.string   "dob"
+  create_table "charities", force: :cascade do |t|
+    t.string   "image_url"
     t.string   "name"
-    t.text     "bio"
-    t.string   "image_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "directors", force: :cascade do |t|
-    t.string   "dob"
-    t.string   "name"
-    t.text     "bio"
-    t.string   "image_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "movies", force: :cascade do |t|
-    t.string   "title"
-    t.string   "year"
-    t.integer  "duration"
-    t.text     "description"
-    t.string   "image_url"
-    t.integer  "director_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string   "character_name"
-    t.integer  "movie_id"
-    t.integer  "actor_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "mission"
+    t.integer  "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -1,22 +1,23 @@
 Rails.application.routes.draw do
+
   # Route for bare domain:
   get('/', { :controller => 'charities', :action => 'index' })
 
-  # Routes for the Actor resource:
+  # Routes for the Charity resource:
   # CREATE
-  get('/charities/new_form', { :controller => 'charities', :action => 'new_form' })
-  get('/create_actor', { :controller => 'charities', :action => 'create_row' })
+  get "/charities/new", :controller => "charities", :action => "new"
+  post "/create_charity", :controller => "charities", :action => "create"
 
   # READ
-  get('/charities', { :controller => 'charities', :action => 'index' })
-  get('/charities/:id', { :controller => 'charities', :action => 'show' })
+  get "/charities", :controller => "charities", :action => "index"
+  get "/charities/:id", :controller => "charities", :action => "show"
 
   # UPDATE
-  get('/charities/:id/edit_form', { :controller => 'charities', :action => 'edit_form' })
-  get('/update_actor/:id', { :controller => 'charities', :action => 'update_row' })
+  get "/charities/:id/edit", :controller => "charities", :action => "edit"
+  post "/update_charity/:id", :controller => "charities", :action => "update"
 
   # DELETE
-  get('/delete_actor/:id', { :controller => 'charities', :action => 'destroy' })
+  get "/delete_charity/:id", :controller => "charities", :action => "destroy"
   #------------------------------
 
 end

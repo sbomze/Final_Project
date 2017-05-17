@@ -1,45 +1,71 @@
 class CharitiesController < ApplicationController
   def index
     @charities = Charity.all
+
     render("charities/index.html.erb")
   end
 
   def show
     @charity = Charity.find(params[:id])
+
+    render("charities/show.html.erb")
   end
 
-  def new_form
-    render("charities/new_form.html.erb")
-  end
-
-  def create_row
+  def new
     @charity = Charity.new
-    @charity.dob = params[:dob]
-    @charity.name = params[:name]
-    @charity.bio = params[:bio]
-    @charity.image_url = params[:image_url]
-    @charity.save
-    redirect_to("/charities")
+
+    render("charities/new.html.erb")
   end
 
-  def edit_form
-    @charity = Charity.find(params[:id])
-    render("charities/edit_form.html.erb")
+  def create
+    @charity = Charity.new
+
+    @charity.image_url = params[:image_url]
+    @charity.name = params[:name]
+    @charity.mission = params[:mission]
+    @charity.rating = params[:rating]
+
+    save_status = @charity.save
+
+    if save_status == true
+      redirect_to("/charities/#{@charity.id}", :notice => "Charity created successfully.")
+    else
+      render("charities/new.html.erb")
+    end
   end
 
-  def update_row
+  def edit
     @charity = Charity.find(params[:id])
-    @charity.dob = params[:dob]
-    @charity.name = params[:name]
-    @charity.bio = params[:bio]
+
+    render("charities/edit.html.erb")
+  end
+
+  def update
+    @charity = Charity.find(params[:id])
+
     @charity.image_url = params[:image_url]
-    @charity.save
-    render("show")
+    @charity.name = params[:name]
+    @charity.mission = params[:mission]
+    @charity.rating = params[:rating]
+
+    save_status = @charity.save
+
+    if save_status == true
+      redirect_to("/charities/#{@charity.id}", :notice => "Charity updated successfully.")
+    else
+      render("charities/edit.html.erb")
+    end
   end
 
   def destroy
     @charity = Charity.find(params[:id])
+
     @charity.destroy
-    redirect_to("/charities")
+
+    if URI(request.referer).path == "/charities/#{@charity.id}"
+      redirect_to("/", :notice => "Charity deleted.")
+    else
+      redirect_to(:back, :notice => "Charity deleted.")
+    end
   end
 end

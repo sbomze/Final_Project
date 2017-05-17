@@ -1,9 +1,6 @@
-Director.destroy_all
-Actor.destroy_all
-Movie.destroy_all
-Role.destroy_all
+Charity.destroy_all
 
-Actor.create!([
+Charity.create!([
   {id: 4557, dob: "October 16, 1958", name: "Tim Robbins", bio: "Born in West Covina, California, but raised in New York City, Tim Robbins is the son of former The Highwaymen singer Gil Robbins and actress Mary Robbins. Robbins studied drama at UCLA, where he graduated with honors in 1981. That same year, he formed the Actors' Gang theater group, an experimental ensemble that expressed radical political observations through the European avant-garde form of theater. He started film work in television movies in 1983, but hit the big time in 1988 with his por...", image_url: "http://ia.media-imdb.com/images/M/MV5BMTI1OTYxNzAxOF5BMl5BanBnXkFtZTYwNTE5ODI4._V1._SY314_CR15,0,214,314_.jpg"},
   {id: 4558, dob: "June 1, 1937", name: "Morgan Freeman", bio: "With an authoritative voice and calm demeanor, this ever popular American actor has grown into one of the most respected figures in modern US cinema. Born in June 1937 in Memphis, Tennessee, the young Freeman attended Los Angeles Community College before serving several years in the US Air Force as a mechanic between 1955 and 1959. His first dramatic arts exposure was on the stage including appearing in an all-African American production of the exuberant musical Hello, Dolly!.Throughout the 1...", image_url: "http://ia.media-imdb.com/images/M/MV5BMTc0MDMyMzI2OF5BMl5BanBnXkFtZTcwMzM2OTk1MQ@@._V1._SX214_CR0,0,214,314_.jpg"},
   {id: 4559, dob: "November 15, 1945", name: "Bob Gunton", bio: nil, image_url: "http://ia.media-imdb.com/images/M/MV5BMTc3MzY0MTQzM15BMl5BanBnXkFtZTcwMTM0ODYxNw@@._V1._SY314_CR89,0,214,314_.jpg"},

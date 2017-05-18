@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # Route for Bare Domain:
-  get "/", :controller => "charities", :action => "index"
+  get "/", :controller => "application", :action => "homepage"
 
   # Routes for the Donation resource:
   # CREATE

@@ -18,10 +18,10 @@
 
       <% @donations.each do |donation| %>
       <tr>
-        <td><%= User.where(:id => donation.user_id).pluck(:user_name)%>
-        <td><%= Charity.where(:id => donation.charity_id).pluck(:name).flatten %></td>
-        <td><%= donation.amount %></td>
-        <td><%= donation.frequency %></td>
+        <td><%= User.where(:id => donation.user_id).pluck(:user_name).first %>
+        <td><%= Charity.where(:id => donation.charity_id).pluck(:name).first %></td>
+        <td><%= number_to_currency(donation.amount) %></td>
+        <td><%= donation.frequency.titleize %></td>
         <td>
           <a href="/donations/<%= donation.id %>" class="btn btn-primary">Show</a>
           <a href="/donations/<%= donation.id %>/edit" class="btn btn-warning">Edit</a>

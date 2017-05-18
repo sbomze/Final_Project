@@ -9,8 +9,7 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Image url</th>
-        <th>Name</th>
+        <th>Charity</th>
         <th>Mission</th>
         <th>Rating</th>
         <th>Actions</th>
@@ -18,14 +17,14 @@
 
       <% @charities.each do |charity| %>
       <tr>
-        <td><%= charity.image_url %></td>
-        <td><%= charity.name %></td>
+        <td><img src = "<%= charity.image_url %>"></td>
         <td><%= charity.mission %></td>
         <td><%= charity.rating %></td>
         <td>
-          <a href="/charities/<%= charity.id %>" class="btn btn-primary">Show</a>
+          <a href="/charities/<%=charity.id%>/donate" class="btn btn-primary btn-success"> DONATE</a>
+          <!-- <a href="/charities/<%= charity.id %>" class="btn btn-primary">Show</a>
           <a href="/charities/<%= charity.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_charity/<%= charity.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/delete_charity/<%= charity.id %>" class="btn btn-danger" rel="nofollow">Delete</a> -->
         </td>
       </tr>
       <% end %>

@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @donation.errors.any? %>
+  <% @donation.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Donation #<%= @donation.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_donation/<%= @donation.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @donation.user_id %>">
+      </div>
+
+      <!-- Label and input for charity_id -->
+      <div class="form-group">
+        <label for="charity_id" class="control-label">
+          Charity
+        </label>
+
+        <input type="text" id="charity_id" name="charity_id" placeholder="Charity" class="form-control" value="<%= @donation.charity_id %>">
+      </div>
+
+      <!-- Label and input for amount -->
+      <div class="form-group">
+        <label for="amount" class="control-label">
+          Amount
+        </label>
+
+        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @donation.amount %>">
+      </div>
+
+      <!-- Label and input for frequency -->
+      <div class="form-group">
+        <label for="frequency" class="control-label">
+          Frequency
+        </label>
+
+        <input type="text" id="frequency" name="frequency" placeholder="Frequency" class="form-control" value="<%= @donation.frequency %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Donation
+      </button>
+      or
+      <a href="/donations/<%= @donation.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

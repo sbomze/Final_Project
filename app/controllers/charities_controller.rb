@@ -68,4 +68,5 @@ class CharitiesController < ApplicationController
       redirect_to(:back, :notice => "Charity deleted.")
     end
   end
+
 end

@@ -4,9 +4,10 @@ class CreateCharities < ActiveRecord::Migration[5.0]
       t.string :image_url
       t.string :name
       t.string :mission
-      t.integer :rating
+      t.float :rating
 
       t.timestamps
+
     end
   end
 end

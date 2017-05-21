@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   #Route for Sessions Resource
   get 'sessions/login', :controller => "sessions", :action => "login"
-  get 'sessions/authenticate', :controller => "sessions", :action => "login_attempt"
+  get '/charities', :controller => "sessions", :action => "login_attempt"
 
   # Routes for the Donation resource:
   # CREATE

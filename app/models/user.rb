@@ -4,8 +4,8 @@ class User < ApplicationRecord
 
   require 'credit_card_validations'
   require 'bcrypt'
-  # attr_accessor :password
-  attr_accessor :user_name, :email, :password, :password_confirmation
+  attr_accessor :password
+  # attr_accessor :user_name, :email, :password, :password_confirmation
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
   #Validations
@@ -44,12 +44,11 @@ class User < ApplicationRecord
     self.password = nil
   end
 
-  def self.authenticate(username_or_email="", login_password="")
+  #Authentification
+  def self.authenticate(username="", login_password="")
 
-    if  EMAIL_REGEX.match(username_or_email)
-      user = User.find_by_email(username_or_email)
-    else
-      user = User.find_by_username(username_or_email)
+    if  EMAIL_REGEX.match(username)
+      user = User.find_by_username(username)
     end
 
     if user && user.match_password(login_password)

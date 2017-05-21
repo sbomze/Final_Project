@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html >
 <head>
   <meta charset="UTF-8">
@@ -27,7 +27,7 @@
 
         <div class="form__field">
           <label for="login__password"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span class="hidden">Password</span></label>
-          <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+          <input id="login__password" type="password" name="login_password" class="form__input" placeholder="Password" required>
         </div>
 
         <div class="form__field">
@@ -47,4 +47,22 @@
   </html>
 
 </body>
-</html>
+</html> -->
+
+<% @page_title = "UserAuth | Login" -%>
+
+<div class= "Sign_Form">
+
+  <h1>Log in</h1>
+
+  <%= form_tag(:action => 'login_attempt') do %>
+
+    <p>Username:</br> <%= text_field_tag(:username) %></p> 
+
+    <p>Password:</br> <%= password_field_tag :login_password %></p>
+
+    <%= submit_tag("Log In") %>
+
+  <% end %>
+
+</div>

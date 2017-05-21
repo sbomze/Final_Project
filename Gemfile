@@ -4,6 +4,8 @@ gem "starter_generators", :git => "https://github.com/raghubetina/starter_genera
 
 gem 'credit_card_validations'
 
+gem 'compass'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.1'
 # Use SCSS for stylesheets

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   # Route for Bare Domain:
   get "/", :controller => "application", :action => "homepage"
 
+  #Route for initial Login
+  get 'sessions/new', :controller => "sessions", :action => "new"
+
   # Routes for the Donation resource:
   # CREATE
   get "/donations/new", :controller => "donations", :action => "new"

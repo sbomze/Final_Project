@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518041721) do
+ActiveRecord::Schema.define(version: 20170521041933) do
 
   create_table "actors", force: :cascade do |t|
     t.string   "dob"
@@ -78,11 +78,12 @@ ActiveRecord::Schema.define(version: 20170518041721) do
     t.string   "city"
     t.string   "state_province"
     t.string   "country"
-    t.float    "card_number"
+    t.string   "card_number"
     t.string   "expiration_date"
     t.integer  "security_code"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "password"
   end
 
 end

@@ -1,7 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Saint Pablo</title>
+
+  <style>
+  body{background-image: url("https://flavorwire.files.wordpress.com/2016/06/saint-pablo2.png?w=1200");
+  background-size: 250px;
+  /*background-repeat: no-repeat;*/
+}
+</style>
+
+</head>
+</html>
+
+
 <div class="page-header">
   <h1>
-    Charities
+    CHARITIES
+    <% if @user_name == "sbomze" then %>
     <a href="/charities/new" class="btn btn-lg btn-success">New Charity</a>
+    <%end%>
   </h1>
 </div>
 

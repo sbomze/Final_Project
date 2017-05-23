@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :city, :presence => true
   validates :state_province, :presence => true
   validates :country, :presence => true
-  validates :card_number, :presence => true,  credit_card_number: true
+  validates :card_number, :presence => true  #,credit_card_number: true
   validates :security_code, :presence => true, :numericality => {:only_integer => true, :greater_than_or_equal_to => 000, :less_than_or_equal_to => 9999}
   validates :password, :confirmation => true #password_confirmation attr
   # validates_length_of :password, :in => 6..20, :on => :create
@@ -27,40 +27,40 @@ class User < ApplicationRecord
   has_many :donations, :class_name => "Donation", :foreign_key => "user_id"
   has_many :charities, :through => :donations
 
-  #Encryption
-  before_save :encrypt_password
-  after_save :clear_password
-
-  def encrypt_password
-
-    if password.present?
-      self.salt = BCrypt::Engine.generate_salt
-      self.encrypted_password= BCrypt::Engine.hash_secret(password, salt)
-    end
-
-  end
-
-  def clear_password
-    self.password = nil
-  end
-
-  #Authentification
-  def self.authenticate(username="", login_password="")
-
-    if  EMAIL_REGEX.match(username)
-      user = User.find_by_username(username)
-    end
-
-    if user && user.match_password(login_password)
-      return user
-    else
-      return false
-    end
-
-  end
-
-  def match_password(login_password="")
-    encrypted_password == BCrypt::Engine.hash_secret(login_password, salt)
-  end
-
+#   #Encryption
+#   before_save :encrypt_password
+#   after_save :clear_password
+#
+#   def encrypt_password
+#
+#     if password.present?
+#       self.salt = BCrypt::Engine.generate_salt
+#       self.encrypted_password= BCrypt::Engine.hash_secret(password, salt)
+#     end
+#
+#   end
+#
+#   def clear_password
+#     self.password = nil
+#   end
+#
+#   #Authentification
+#   def self.authenticate(username="", login_password="")
+#
+#     if  EMAIL_REGEX.match(username)
+#       user = User.find_by_username(username)
+#     end
+#
+#     if user && user.match_password(login_password)
+#       return user
+#     else
+#       return false
+#     end
+#
+#   end
+#
+#   def match_password(login_password="")
+#     encrypted_password == BCrypt::Engine.hash_secret(login_password, salt)
+#   end
+#
 end

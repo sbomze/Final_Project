@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get "/", :controller => "application", :action => "homepage"
 
   # Route for Sessions Resource
-  get 'sessions/login', :controller => "sessions", :action => "login"
+  get 'sessions/login', :controller => "sessions", :action => "login_attempt"
+  get 'sessions/login_success', :controller => "sessions", :action => "login_success"
+  get 'sessions/signup', :controller => "sessions", :action => "signup"
 
   # Routes for the Donation resource:
   # CREATE

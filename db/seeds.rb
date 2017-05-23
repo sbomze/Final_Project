@@ -8,7 +8,7 @@ Charity.create!([
   ])
 
   User.create!([
-    {id: 1, first_name: "Steve", last_name: "Bomze", user_name: "sbomze", email: "steve.bomze@gmail.com", password: "Pardigm567", zip_code: 19087, address: "209 40th Street", address_2: "Apt B", city: "Newport Beach", state_province: "California", country: "United States", card_number: "4737028980185345", expiration_date: "May 2019", security_code: 977}])
+    {id: 1, first_name: "Steve", last_name: "Bomze", user_name: "sbomze", email: "steve.bomze@gmail.com", password: "sbomze", zip_code: 19087, address: "209 40th Street", address_2: "Apt B", city: "Newport Beach", state_province: "California", country: "United States", card_number: "1234123412341234", exp_month_num: 8, exp_month_name: "Aug", exp_year: 2019, security_code: 977}, {id: 2, first_name: "Gail", last_name: "Grippi", user_name: "ggrip6", email: "ggrip6@aol.com", password: "ggrip6", zip_code: 19087, address: "9 Paine Circle", address_2: "", city: "Wayne", state_province: "Pennsylvania", country: "United States", card_number: "1234123412341234", exp_month_num: 8, exp_month_name: "Aug", exp_year: 2020, security_code: 538}])
 
     Donation.create!([
       {id: 1, user_id: 1, charity_id: 1, amount: 1, frequency: "daily"}])

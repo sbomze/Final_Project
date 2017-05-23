@@ -29,7 +29,7 @@
     </ul>
 
     <div id="login">
-      <form action = "/charities" class="form">
+      <form action = "/sessions/login_success" class="form" method = "get">
         <p class="fieldset">
           <label class="image-replace email" for="signin-email">E-mail</label>
           <input class="full-width has-padding has-border" id="signin-email" type="email" name ="email" placeholder="E-mail">
@@ -58,7 +58,7 @@
     </div>
 
     <div id="signup">
-      <form class="form">
+      <form action = "/sessions/signup" method = "get" class="form">
         <p class="fieldset">
           <label class="image-replace username" for="signup-username">Username</label>
           <input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
@@ -87,23 +87,43 @@
         </p>
 
         <p class="fieldset">
+          <input class="full-width has-padding has-border" id="address" name="address" placeholder="Address">
+        </p>
+
+        <p class="fieldset">
+          <input class="full-width has-padding has-border" id="address_2" name="address_2" placeholder="Address 2">
+        </p>
+
+        <p class="fieldset">
+          <input class="full-width has-padding has-border" id="city" name="city" placeholder="City">
+        </p>
+
+        <p>
+          <%= select_tag :state, options_for_select(us_states), :class => "full-width has-padding has-border" %>
+        </p>
+
+        <p class="fieldset">
           <input class="full-width has-padding has-border" id="zip_code" name="zip_code" placeholder="Zip Code">
         </p>
 
         <p class="fieldset">
-          <input class="full-width has-padding has-border" id="address" name="address" placeholder="address">
+          <input type = "hidden" class="full-width has-padding has-border" id="country" name="country" placeholder="Country" value = "United States">
         </p>
 
         <p class="fieldset">
-          <input class="full-width has-padding has-border" id="address_2" name="address_2" placeholder="address 2">
+          <input class="full-width has-padding has-border" id="card_number" name="card_number" placeholder="Credit Card Number">
+        </p>
+
+        <p>
+          <%= select_tag :exp_month_name, options_for_select(month_names), :class => "full-width has-padding has-border" %>
+        </p>
+
+        <p>
+          <%= select_tag :exp_month_year, options_for_select(years), :class => "full-width has-padding has-border" %>
         </p>
 
         <p class="fieldset">
-          <input class="full-width has-padding has-border" id="city" name="city" placeholder="city">
-        </p>
-
-        <p class="fieldset">
-          <input class="full-width has-padding has-border" id="address" name="address" placeholder="address">
+          <input class="full-width has-padding has-border" id="security_code" name="security_code" placeholder="Security Code">
         </p>
 
         <p class="fieldset">

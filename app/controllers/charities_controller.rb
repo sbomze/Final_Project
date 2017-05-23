@@ -2,7 +2,7 @@ class CharitiesController < ApplicationController
 
   def index
     @charities = Charity.all
-    @user_name = User.where(:email => params[:email]).pluck("user_name").join(',')
+    # @user_name = User.where(:email => params[:email]).pluck("user_name").join(',')
     render("charities/index.html.erb")
   end
 

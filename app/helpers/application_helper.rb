@@ -57,4 +57,37 @@ module ApplicationHelper
     ]
   end
 
+  def month_names
+    [
+      ['January', 'Jan'],
+      ['February', 'Feb'],
+      ['March', 'Mar'],
+      ['April', 'Apr'],
+      ['May', 'May'],
+      ['June', 'Jun'],
+      ['July', 'Jul'],
+      ['August', 'Aug'],
+      ['September', 'Sep'],
+      ['October', 'Oct'],
+      ['November', 'Nov'],
+      ['December', 'Dec']
+    ]
+  end
+
+  def years
+    [
+      [2017],
+      [2018],
+      [2019],
+      [2020],
+      [2021],
+      [2022],
+      [2023],
+      [2024],
+      [2025],
+      [2026],
+      [2027]
+    ]
+  end
+
 end

@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     @user.last_name = params[:last_name]
     @user.user_name = params[:user_name]
     @user.email = params[:email]
+    @user.password = params[:password]
     @user.zip_code = params[:zip_code]
     @user.address = params[:address]
     @user.address_2 = params[:address_2]

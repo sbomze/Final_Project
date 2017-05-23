@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def login_attempt
+    $user = User.new
     render("/sessions/login.html.erb")
   end
 
@@ -28,10 +29,9 @@ class SessionsController < ApplicationController
     $user.exp_month_name = params[:exp_month_name]
     $user.exp_year = params[:exp_year]
 
-    $user.save
-    
     $user_name = User.where(:email => params[:email]).pluck("user_name").join(',')
-    redirect_to("/charities")
+
+    redirect_to("/create_user")
   end
 
 end

@@ -1,7 +1,7 @@
 
 <!-- Validation failure messages -->
-<% if @user.errors.any? %>
-<% @user.errors.full_messages.each do |message| %>
+<% if $user.errors.any? %>
+<% $user.errors.full_messages.each do |message| %>
 <div class="alert alert-dismissable alert-danger">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   <%= message %>
@@ -105,7 +105,7 @@
       <!-- Label and input for state_province -->
       <div class="form-group">
         <label for="state_province" class="control-label">
-          State province
+          State
         </label>
 
         <input type="text" id="state_province" name="state_province" placeholder="State province" class="form-control" value="<%= @user.state_province %>">
@@ -129,14 +129,13 @@
         <input type="text" id="card_number" name="card_number" placeholder="Card number" class="form-control" value="<%= @user.card_number %>">
       </div>
 
-      <!-- Label and input for expiration_date -->
-      <div class="form-group">
-        <label for="expiration_date" class="control-label">
-          Expiration date
-        </label>
+      <p>
+        <%= select_tag :exp_month_name, options_for_select(month_names), :class => "full-width has-padding has-border" %>
+      </p>
 
-        <input type="text" id="expiration_date" name="expiration_date" placeholder="Expiration date" class="form-control" value="<%= @user.expiration_date %>">
-      </div>
+      <p>
+        <%= select_tag :exp_month_year, options_for_select(years), :class => "full-width has-padding has-border" %>
+      </p>
 
       <!-- Label and input for security_code -->
       <div class="form-group">

@@ -1,7 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Saint Pablo</title>
+
+  <script>
+    function Donate()
+    {
+      target = window.open("https://action.aclu.org/secure/donate-to-aclu");
+      // form = target.document.forms['webform-client-form-58735'];
+      // FormElement = form.elements["edit-submitted-donor-information-first-name"];
+      // FormElement.value = <%=User.where(:email => $email).pluck("first_name").join(',')%>;
+
+
+      var f = target.document.forms['webform-component-donation'];
+      f.getElementsById('edit-submitted-donation-other-amount').click();
+
+      // var DonationType = document.getElementById('edit-submitted-donor-information-first-name');
+      // userFirstName.value = <%=User.where(:email => $email).pluck("first_name").join(',')%>;
+
+
+      // target.close();
+    }
+  </script>
+
+  <title><%=User.where(:email => $email).pluck("first_name").join(',')%></title>
 
   <style>
   body{background-image: url("https://flavorwire.files.wordpress.com/2016/06/saint-pablo2.png?w=1200");
@@ -43,9 +64,15 @@
           <!-- <a href="/charities/<%= charity.id %>" class="btn btn-primary">Show</a>
           <a href="/charities/<%= charity.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_charity/<%= charity.id %>" class="btn btn-danger" rel="nofollow">Delete</a> -->
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
+
+          <a class="btn btn-primary btn-success" onclick="Donate()"> DONATE</a>
+
+          <!-- <%= link_to "DONATE", "https://action.aclu.org/secure/donate-to-aclu", :target => '_blank' %>
+        -->
+
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
 </div>

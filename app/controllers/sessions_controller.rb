@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     $user.address_2 = params[:address_2]
     $user.city = params[:city]
     $user.state_province = params[:state_province]
-    $user.country = params[:country]
+    $user.country = "United States"
     $user.card_number = params[:card_number]
     $user.security_code = params[:security_code]
     $user.password = params[:password]

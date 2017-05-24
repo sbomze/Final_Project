@@ -108,8 +108,16 @@
           <input class="full-width has-padding has-border" id="city" name="city" placeholder="City">
         </p>
 
+        <!-- <p class="fieldset">
+          <select class="full-width has-padding has-border" id="state_province" name="state_province">
+            <option>
+              <%=options_for_select(us_states)%>
+            </option>
+          </select>
+        </p> -->
+
         <p>
-          <%= select_tag :state, options_for_select(us_states), :class => "full-width has-padding has-border" %>
+          <%= select_tag :state_province, options_for_select(us_states), :class => "full-width has-padding has-border" %>
         </p>
 
         <p class="fieldset">
@@ -129,7 +137,7 @@
         </p>
 
         <p>
-          <%= select_tag :exp_month_year, options_for_select(years), :class => "full-width has-padding has-border" %>
+          <%= select_tag :exp_year, options_for_select(years), :class => "full-width has-padding has-border" %>
         </p>
 
         <p class="fieldset">

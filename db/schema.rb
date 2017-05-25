@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523025624) do
+ActiveRecord::Schema.define(version: 20170524193240) do
 
   create_table "actors", force: :cascade do |t|
     t.string   "dob"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170523025624) do
     t.float    "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "target_url"
   end
 
   create_table "directors", force: :cascade do |t|
@@ -71,7 +72,6 @@ ActiveRecord::Schema.define(version: 20170523025624) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "user_name"
-    t.string   "email"
     t.integer  "zip_code"
     t.string   "address"
     t.string   "address_2"
@@ -80,12 +80,24 @@ ActiveRecord::Schema.define(version: 20170523025624) do
     t.string   "country"
     t.string   "card_number"
     t.integer  "security_code"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "password"
     t.integer  "exp_month_num"
     t.string   "exp_month_name"
     t.integer  "exp_year"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
 end

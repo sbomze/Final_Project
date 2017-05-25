@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   # Route for Bare Domain:
   get "/", :controller => "application", :action => "homepage"
+  get "/test", :controller => "application", :action => "test"
+
 
   # Route for Sessions Resource
   get 'sessions/login', :controller => "sessions", :action => "login_attempt"

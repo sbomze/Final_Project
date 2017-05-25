@@ -3,23 +3,16 @@
 <head>
 
   <script>
-    function Donate()
-    {
-      target = window.open("https://action.aclu.org/secure/donate-to-aclu");
-      // form = target.document.forms['webform-client-form-58735'];
-      // FormElement = form.elements["edit-submitted-donor-information-first-name"];
-      // FormElement.value = <%=User.where(:email => $email).pluck("first_name").join(',')%>;
+  function Donate()
+  {
+    var w = window.open("https://action.aclu.org/secure/donate-to-aclu");
+    w.document.getElementByid("edit-submitted-donor-information-first-name").value = 'test';
 
+    // userFirstName.value = <%=User.where(:email => $email).pluck("first_name").join(',')%>;
+    //
 
-      var f = target.document.forms['webform-component-donation'];
-      f.getElementsById('edit-submitted-donation-other-amount').click();
-
-      // var DonationType = document.getElementById('edit-submitted-donor-information-first-name');
-      // userFirstName.value = <%=User.where(:email => $email).pluck("first_name").join(',')%>;
-
-
-      // target.close();
-    }
+    // target.close();
+  }
   </script>
 
   <title><%=User.where(:email => $email).pluck("first_name").join(',')%></title>
@@ -38,7 +31,7 @@
 <div class="page-header">
   <h1>
     CHARITIES
-    <% if $user_name == "sbomze" then %>
+    <% if $user.user_name == "sbomze" then %>
     <a href="/charities/new" class="btn btn-lg btn-success">New Charity</a>
     <%end%>
   </h1>

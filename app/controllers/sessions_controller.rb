@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
   end
 
   def login_success
-    $id = User.where(:email => params[:email]).pluck("id")
+    $id = User.where(:email => params[:email]).pluck("id").join(',')
     $user = User.find($id)
-    $email = params[:email]
+    # $email = params[:email]
+    # $user_name = User.where(:email => params[:email]).pluck("user_name").join(',')
 
-    $user_name = User.where(:email => params[:email]).pluck("user_name").join(',')
     redirect_to("/charities")
   end
 

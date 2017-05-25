@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
     render("layouts/homepage.html.erb")
   end
 
-  def test
-    render("/charities/test.html.erb")
+  def explain
+    render("/layouts/explain.html.erb")
   end
 
 end

@@ -1,3 +1,11 @@
+
+<style>
+body{background-image: url("https://flavorwire.files.wordpress.com/2016/06/saint-pablo2.png?w=1200");
+background-size: 250px;
+/*background-repeat: no-repeat;*/
+}
+</style>
+
 <div class="page-header">
   <h1>
     Donations
@@ -19,16 +27,16 @@
       <% @donations.each do |donation| %>
       <tr>
         <td><%= User.where(:id => donation.user_id).pluck(:user_name).first %>
-        <td><%= Charity.where(:id => donation.charity_id).pluck(:name).first %></td>
-        <td><%= number_to_currency(donation.amount) %></td>
-        <td><%= donation.frequency.titleize %></td>
-        <td>
-          <a href="/donations/<%= donation.id %>" class="btn btn-primary">Show</a>
-          <a href="/donations/<%= donation.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_donation/<%= donation.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+          <td><%= Charity.where(:id => donation.charity_id).pluck(:name).first %></td>
+          <td><%= number_to_currency(donation.amount) %></td>
+          <td><%= donation.frequency.titleize %></td>
+          <td>
+            <a href="/donations/<%= donation.id %>" class="btn btn-primary">Show</a>
+            <a href="/donations/<%= donation.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_donation/<%= donation.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
-</div>

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  # Route for Bare Domain:
+  # Basic Routes
   get "/", :controller => "application", :action => "homepage"
-  get "/test", :controller => "application", :action => "test"
+  get "/explain", :controller => "application", :action => "explain"
 
 
   # Route for Sessions Resource

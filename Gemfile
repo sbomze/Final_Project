@@ -10,9 +10,13 @@ gem 'sorcery'
 
 gem 'oauth'
 
-gem 'bcrypt', :platforms => :ruby
+gem 'bcrypt', platforms: :ruby
 
 gem 'devise'
+
+gem 'mechanize'
+
+gem 'gon'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.1'

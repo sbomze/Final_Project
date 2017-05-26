@@ -1,11 +1,19 @@
+<style>
+body{background-image: url("http://68.media.tumblr.com/9d43a4b2845aea245c97f0ce23868954/tumblr_o4y5f2lS9C1re5stco1_r1_1280.png");
+background-size: 250px;
+/*background-repeat: no-repeat;*/
+}
+</style>
+
+
 <!-- Validation failure messages -->
 <% if @donation.errors.any? %>
-  <% @donation.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @donation.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">

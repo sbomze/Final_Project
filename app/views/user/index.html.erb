@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+body{background-image: url("https://flavorwire.files.wordpress.com/2016/06/saint-pablo2.png?w=1200");
+background-size: 250px;
+/*background-repeat: no-repeat;*/
+}
+</style>
+
+</head>
+</html>
+
+<div class="page-header">
+  <h1>
+    USERS
+    <a href="/users/new" class="btn btn-lg btn-success">New User</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User Name</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>City</th>
+        <th>State</th>
+      </tr>
+
+      <% @users.each do |user| %>
+      <tr>
+        <td><img src = "<%= user.image_url %>" height = "150" width = "300"></td>
+        <td><%= user.mission %></td>
+        <td><%= user.rating %></td>
+        <td>
+          <a href="/users/<%=user.id%>/donate" class="btn btn-primary btn-success"> DONATE</a>
+
+          <% if $user.user_name == "sbomze" then %>
+          <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
+          <a href="/users/<%= user.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <%end%>
+
+          <a class="btn btn-primary btn-success" onclick="Donate()"> DONATE</a>
+
+
+          <!-- <%= link_to "DONATE", "https://action.aclu.org/secure/donate-to-aclu", :target => '_blank' %>
+        -->
+
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+</div>

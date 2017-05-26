@@ -1,5 +1,17 @@
 class CharitiesController < ApplicationController
 
+  def test
+    require 'mechanize'
+    mechanize = Mechanize.new
+    page = mechanize.get('https://www.gov.uk/')
+    form = page.forms.first
+    form['q'] = 'passport'
+    page = form.submit
+    page.search('#results h3').each do |h3|
+      puts h3.text.strip
+    end  
+  end
+
   def index
     @charities = Charity.all
     # @user_name = User.where(:email => params[:email]).pluck("user_name").join(',')

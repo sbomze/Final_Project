@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/", :controller => "application", :action => "homepage"
   get "/explain", :controller => "application", :action => "explain"
 
+  get "/charities/test", :controller => "charities", :action => "test"
 
   # Route for Sessions Resource
   get 'sessions/login', :controller => "sessions", :action => "login_attempt"

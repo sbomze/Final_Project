@@ -27,46 +27,52 @@ background-size: 250px;
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
+      <label for="user_id" class="control-label">
+        User ID
+      </label>
 
+      <div class="form-group">
         <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @donation.user_id %>">
       </div>
 
-      <!-- Label and input for charity_id -->
+      <!-- Label and input for charity name -->
       <div class="form-group">
-        <label for="charity_id" class="control-label">
+        <label for="amount" class="control-label">
           Charity
         </label>
 
-        <input type="text" id="charity_id" name="charity_id" placeholder="Charity" class="form-control" value="<%= @donation.charity_id %>">
+        <input type="text" id="charity_name" name="charity_name" placeholder="Charity" class="form-control" value="<%= @donation.charity_id %>">
       </div>
 
-      <!-- Label and input for amount -->
-      <div class="form-group">
-        <label for="amount" class="control-label">
-          Amount
-        </label>
+      <!-- <select id="charity_id" name="charity_id" class="form-control">
+      <% Charity.all.each do |charity| %>
+      <option value="<%charity.id%>"><%=charity.name%>
+    </option>
+    <%end%> -->
 
-        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @donation.amount %>">
-      </div>
+    <!-- Label and input for amount -->
+    <div class="form-group">
+      <label for="amount" class="control-label">
+        Amount
+      </label>
 
-      <!-- Label and input for frequency -->
-      <div class="form-group">
-        <label for="frequency" class="control-label">
-          Frequency
-        </label>
+      <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @donation.amount %>">
+    </div>
 
-        <input type="text" id="frequency" name="frequency" placeholder="Frequency" class="form-control" value="<%= @donation.frequency %>">
-      </div>
+    <!-- Label and input for frequency -->
+    <div class="form-group">
+      <label for="frequency" class="control-label">
+        Frequency
+      </label>
 
-      <button class="btn btn-success">
-        Create Donation
-      </button>
-      or
-      <a href="/donations">Cancel</a>
-    </form>
-  </div>
+      <input type="text" id="frequency" name="frequency" placeholder="Frequency" class="form-control" value="<%= @donation.frequency %>">
+    </div>
+
+    <button class="btn btn-success">
+      Create Donation
+    </button>
+    or
+    <a href="/donations">Cancel</a>
+  </form>
+</div>
 </div>

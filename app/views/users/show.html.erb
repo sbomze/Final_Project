@@ -1,0 +1,65 @@
+
+<div class="page-header">
+  <h3>User #<%= @user.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>First name</dt>
+      <dd><%= @user.first_name %></dd>
+
+      <dt>Last name</dt>
+      <dd><%= @user.last_name %></dd>
+
+      <dt>User name</dt>
+      <dd><%= @user.user_name %></dd>
+
+      <dt>Email</dt>
+      <dd><%= @user.email %></dd>
+
+      <dt>Zip code</dt>
+      <dd><%= @user.zip_code %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @user.address %></dd>
+
+      <dt>Address 2</dt>
+      <dd><%= @user.address_2 %></dd>
+
+      <dt>City</dt>
+      <dd><%= @user.city %></dd>
+
+      <dt>State</dt>
+      <dd><%= @user.state_province %></dd>
+
+      <dt>Country</dt>
+      <dd><%= @user.country %></dd>
+
+      <dt>Card number</dt>
+      <dd><%= @user.card_number %></dd>
+
+      <dt>Security code</dt>
+      <dd><%= @user.security_code %></dd>
+
+      <dt>Expiration Month</dt>
+      <dd><%= @user.exp_month_name %></dd>
+
+      <dt>Expiration Year</dt>
+      <dd><%= @user.exp_year %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/users" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/users/<%= @user.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_user/<%= @user.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

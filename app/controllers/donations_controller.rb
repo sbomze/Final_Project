@@ -21,7 +21,7 @@ class DonationsController < ApplicationController
     @donation = Donation.new
 
     @donation.user_id = params[:user_id]
-    @donation.charity_id = params[:charity_id]
+    @donation.charity_id = Charity.find_by_name(params[:charity_name]).id
     @donation.amount = params[:amount]
     @donation.frequency = params[:frequency]
 
@@ -44,7 +44,7 @@ class DonationsController < ApplicationController
     @donation = Donation.find(params[:id])
 
     @donation.user_id = params[:user_id]
-    @donation.charity_id = params[:charity_id]
+    @donation.charity_id = Charity.find_by_name(params[:charity_name]).id
     @donation.amount = params[:amount]
     @donation.frequency = params[:frequency]
 

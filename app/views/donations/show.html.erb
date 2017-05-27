@@ -1,18 +1,18 @@
 <div class="page-header">
-  <h3>Donation #<%= @donation.id %></h3>
+  <h1><%= @donation.user.user_name %>'s Donation</h1>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @donation.user_id %></dd>
+      <dd><%= @donation.user.user_name %></dd>
 
       <dt>Charity</dt>
-      <dd><%= @donation.charity_id %></dd>
+      <dd><%= @donation.charity.name %></dd>
 
       <dt>Amount</dt>
-      <dd><%= @donation.amount %></dd>
+      <dd><%= number_to_currency(@donation.amount) %></dd>
 
       <dt>Frequency</dt>
       <dd><%= @donation.frequency %></dd>

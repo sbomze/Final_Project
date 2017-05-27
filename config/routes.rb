@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+  root 'charities#index'
+
   # Basic Routes
   get "/", :controller => "application", :action => "homepage"
   get "/explain", :controller => "application", :action => "explain"

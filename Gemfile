@@ -12,7 +12,7 @@ gem 'oauth'
 
 gem 'bcrypt' , platforms: :ruby
 
-gem 'devise', '4.3.0'
+gem 'devise', '4.2.1'
 
 gem 'mechanize'
 

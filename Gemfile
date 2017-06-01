@@ -10,9 +10,9 @@ gem 'sorcery'
 
 gem 'oauth'
 
-gem 'bcrypt', platforms: :ruby
+gem 'bcrypt' , platforms: :ruby
 
-gem 'devise'
+gem 'devise', '4.3.0'
 
 gem 'mechanize'
 

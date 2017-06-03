@@ -2,34 +2,10 @@
 <html>
 <head>
 
-  <script type="text/javascript">
-  var my_email= "my@email.com"
-  $(document).ready(function()
-  {
-    $("#test").val(my_email);
-  });
-  </script>
-
-  <script>
-  function Donate()
-  {
-    var w = window.open("http://thelunchboxfund.org/donate/");
-
-    gon.first_name = "Steve"
-
-    w.document.getElementByid("gift_amount_simpleField").value = gon.first_name
-
-    // userFirstName.value = <%=User.where(:email => $email).pluck("first_name").join(',')%>;
-    //
-
-    // target.close();
-  }
-  </script>
-
-  <style>
-  body{background-image: url("https://flavorwire.files.wordpress.com/2016/06/saint-pablo2.png?w=1200");
-  background-size: 250px;
-  /*background-repeat: no-repeat;*/
+<style>
+body{background-image: url("https://flavorwire.files.wordpress.com/2016/06/saint-pablo2.png?w=1200");
+background-size: 250px;
+/*background-repeat: no-repeat;*/
 }
 </style>
 
@@ -61,23 +37,15 @@
         <td><%= charity.mission %></td>
         <td><%= charity.rating %></td>
         <td>
-          <a href="/charities/<%=charity.id%>/donate" class="btn btn-primary btn-success"> DONATE</a>
-
+          <a href="/donations/new" class="btn btn-primary btn-success"> DONATE</a>
           <% if $user.user_name == "sbomze" then %>
-            <a href="/charities/<%= charity.id %>" class="btn btn-primary">Show</a>
-            <a href="/charities/<%= charity.id %>/edit" class="btn btn-warning">Edit</a>
-            <a href="/delete_charity/<%= charity.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/charities/<%= charity.id %>" class="btn btn-primary">Show</a>
+          <a href="/charities/<%= charity.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_charity/<%= charity.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
           <%end%>
-          
-          <a class="btn btn-primary btn-success" onclick="Donate()"> DONATE</a>
-
-
-          <!-- <%= link_to "DONATE", "https://action.aclu.org/secure/donate-to-aclu", :target => '_blank' %>
-        -->
-
-      </td>
-    </tr>
-    <% end %>
-  </table>
-</div>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   require 'credit_card_validations'
   require 'bcrypt'
-  attr_accessor :password
+  # attr_accessor :password
   # attr_accessor :user_name, :email, :password, :password_confirmation
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 

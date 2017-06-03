@@ -27,42 +27,46 @@
       <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @donation.user_id %>">
     </div>
 
-    <!-- Label and input for charity_id -->
+    <!-- Label and input for charity_name -->
     <div class="form-group">
       <label for="charity_name" class="control-label">
         Charity
       </label>
 
-      <input type="text" id="charity_name" name="charity_name" placeholder="Charity" class="form-control" value="<%=@donation.charity.name%>">
-        <!-- <%Charity.all.each do |charity|%>
-        <option value="<%charity.name%>"><%=charity.name%>
+      <select name = "charity_name">
+        <%Charity.all.each do |charity|%>
+        <option value="<%=charity.name%>"><%=charity.name%>
         </option>
-        <%end%> -->
-      </div>
+        <%end%>
+      </select>
+    </div>
 
-      <!-- Label and input for amount -->
-      <div class="form-group">
-        <label for="amount" class="control-label">
-          Amount
-        </label>
+    <!-- Input for charity_id -->
+    <!-- <input type="hidden" id="charity_id" name="charity_id" value="<%=Charity.where(:name => @donation.charity.name).pluck("id")%>"> -->
 
-        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @donation.amount %>">
-      </div>
+    <!-- Label and input for amount -->
+    <div class="form-group">
+      <label for="amount" class="control-label">
+        Amount
+      </label>
 
-      <!-- Label and input for frequency -->
-      <div class="form-group">
-        <label for="frequency" class="control-label">
-          Frequency
-        </label>
+      <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @donation.amount %>">
+    </div>
 
-        <input type="text" id="frequency" name="frequency" placeholder="Frequency" class="form-control" value="<%= @donation.frequency %>">
-      </div>
+    <!-- Label and input for frequency -->
+    <div class="form-group">
+      <label for="frequency" class="control-label">
+        Frequency
+      </label>
 
-      <button class="btn btn-warning">
-        Update Donation
-      </button>
-      or
-      <a href="/donations/<%= @donation.id %>">Cancel</a>
-    </form>
-  </div>
+      <input type="text" id="frequency" name="frequency" placeholder="Frequency" class="form-control" value="<%= @donation.frequency %>">
+    </div>
+
+    <button class="btn btn-warning">
+      Update Donation
+    </button>
+    or
+    <a href="/donations/<%= @donation.id %>">Cancel</a>
+  </form>
+</div>
 </div>

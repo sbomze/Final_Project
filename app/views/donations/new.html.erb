@@ -26,13 +26,18 @@ background-size: 250px;
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for user_id -->
-      <label for="user_id" class="control-label">
-        User ID
+      <!-- Label and input for user_name -->
+      <label for="user_name" class="control-label">
+        User Name
       </label>
 
       <div class="form-group">
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @donation.user_id %>">
+        <input type="text" id="user_name" name="user_name" placeholder="User Name" class="form-control" value="<%= $user.user_name %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= $user.id %>">
       </div>
 
       <!-- Label and input for charity name -->

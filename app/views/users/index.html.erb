@@ -13,9 +13,17 @@ background-size: 250px;
 </html>
 
 
+<% @names = [] %>
+<% @donations.each do |donation| %>
+<% @names += [donation.charity.name.to_s] %>
+<% @names = @names.uniq %>
+<% end %>
+
+<% @amt = number_to_currency(@donations.pluck("amount").inject(:+)) %>
+
 <div class="page-header">
   <h1>
-    Users
+    My Profile
     <a href="/users/new" class="btn btn-lg btn-success">New User</a>
   </h1>
 </div>
@@ -27,23 +35,21 @@ background-size: 250px;
         <th>User name</th>
         <th>Charities Supported</th>
         <th>Current Donations</th>
-        <th>Total Donated</th>
+        <th>Current Donation Amount</th>
         <th>Actions</th>
       </tr>
 
-      <% @users.each do |user| %>
       <tr>
-        <td><%= user.user_name %></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><%= @user.user_name %></td>
+        <td><%= @names.join(' | ') %></td>
+        <td><%= @donations.count %></td>
+        <td><%= @amt %></td>
         <td>
-          <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
-          <a href="/users/<%= user.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/users/<%= @user.id %>" class="btn btn-primary">Show</a>
+          <a href="/users/<%= @user.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_user/<%= @user.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
-      <% end %>
     </table>
   </div>
 </div>

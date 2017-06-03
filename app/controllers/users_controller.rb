@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @user = User.find($id)
+    @donations = Donation.where({:user_id => $id})
 
     render("users/index.html.erb")
   end
@@ -87,10 +88,10 @@ class UsersController < ApplicationController
 
     @user.destroy
 
-    if URI(request.referer).path == "/users/#{@user.id}"
+    # if URI(request.referer).path == "/users/#{@user.id}"
       redirect_to("/", :notice => "User deleted.")
-    else
-      redirect_to(:back, :notice => "User deleted.")
-    end
+    # else
+    #   redirect_to(:back, :notice => "User deleted.")
+    # # end
   end
 end

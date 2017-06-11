@@ -15,7 +15,7 @@ background-size: 250px;
 <div class="page-header">
   <h1>
     CHARITIES
-    <% if $user.user_name == "sbomze" then %>
+    <% if current_user.user_name == "sbomze2" then %>
     <a href="/charities/new" class="btn btn-lg btn-success">New Charity</a>
     <%end%>
   </h1>
@@ -38,14 +38,14 @@ background-size: 250px;
         <td><%= charity.rating %></td>
         <td>
           <a href="/donations/new" class="btn btn-primary btn-success"> DONATE</a>
-          <% if $user.user_name == "sbomze" then %>
+          <% if current_user.user_name == "sbomze2" then %>
           <a href="/charities/<%= charity.id %>" class="btn btn-primary">Show</a>
           <a href="/charities/<%= charity.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_charity/<%= charity.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
           <%end%>
         </td>
       </tr>
-      <% end %>
+      <% end%>
     </table>
   </div>
 </div>

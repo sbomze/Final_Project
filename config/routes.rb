@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  # devise_for :users
-  # root 'charities#index'
-
+  devise_for :users
+  root 'charities#index'
+  
   # Basic Routes
   get "/", :controller => "application", :action => "homepage"
   get "/explain", :controller => "application", :action => "explain"

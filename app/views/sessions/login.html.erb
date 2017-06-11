@@ -1,6 +1,6 @@
 <!-- Validation failure messages -->
-<% if $user.errors.any? %>
-<% $user.errors.full_messages.each do |message| %>
+<% if current_user.errors.any? %>
+<% current_user.errors.full_messages.each do |message| %>
 <div class="alert alert-dismissable alert-danger">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   <%= message %>

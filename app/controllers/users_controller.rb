@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
   def index
-    @user = User.find($id)
-    @donations = Donation.where({:user_id => $id})
+    # @user = User.find($id)
+    @user = User.find(current_user.id)
+    @donations = Donation.where({:user_id => current_user.id})
 
     render("users/index.html.erb")
   end

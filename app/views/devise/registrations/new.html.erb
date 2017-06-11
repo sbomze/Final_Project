@@ -1,29 +1,94 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<div class="field">
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name, autofocus: true %>
+</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+<div class="field">
+  <%= f.label :last_name %><br />
+  <%= f.text_field :last_name, autofocus: true %>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+<div class="field">
+  <%= f.label :user_name %><br />
+  <%= f.text_field :user_name, autofocus: true %>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+<div class="field">
+  <%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %>
+</div>
+
+<div class="field">
+  <%= f.label :password %>
+  <% if @minimum_password_length %>
+  <em>(<%= @minimum_password_length %> characters minimum)</em>
+  <% end %><br />
+  <%= f.password_field :password, autocomplete: "off" %>
+</div>
+
+<div class="field">
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+</div>
+
+<div class="field">
+  <%= f.label :address %><br />
+  <%= f.text_field :address, autofocus: true %>
+</div>
+
+<div class="field">
+  <%= f.label :address_2 %><br />
+  <%= f.text_field :address_2, autofocus: true %>
+</div>
+
+<div class="field">
+  <%= f.label :city %><br />
+  <%= f.text_field :city, autofocus: true %>
+</div>
+
+<div class="field">
+  <%= f.label :state %> <br />
+  <%= f.select :state_province, options_for_select(us_states), :class => "full-width has-padding has-border" %>
+</div>
+
+<div class="field">
+  <%= f.label :zip_code %><br />
+  <%= f.text_field :zip_code, autofocus: true %>
+</div>
+
+<div class="field">
+  <%= f.label :country %><br />
+  <%= f.text_field :country, autofocus: true %>
+</div>
+
+<div class="field">
+  <%= f.label :card_number %><br />
+  <%= f.text_field :card_number, autofocus: true %>
+</div>
+
+<div class="field">
+  <%= f.label :expiration_month %> <br />
+  <%= f.select :exp_month_name, options_for_select(month_names), :class => "full-width has-padding has-border" %>
+</div>
+
+<div class="field">
+  <%= f.label :expiration_year %> <br />
+  <%= f.select :exp_year, options_for_select(years), :class => "full-width has-padding has-border" %>
+</div>
+
+<div class="field">
+  <%= f.label :security_code %><br />
+  <%= f.text_field :security_code, autofocus: true %>
+</div>
+
+<div class="actions">
+  <%= f.submit "Sign up" %>
+</div>
 <% end %>
 
 <%= render "devise/shared/links" %>

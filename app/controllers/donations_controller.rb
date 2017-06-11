@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
   def index
-    @donations = Donation.where({:user_id => $id})
+    @donations = Donation.where({:user_id => current_user.id})
 
     render("donations/index.html.erb")
   end
@@ -27,11 +27,16 @@ class DonationsController < ApplicationController
 
     save_status = @donation.save
 
+    if current_user.user_name == "sbomze2" && @donation.charity_id = 1
+      eval(File.read 'C:\Sites\final_project\config\scraper.rb')
+    end
+
     if save_status == true
       redirect_to("/donations/#{@donation.id}", :notice => "Donation created successfully.")
     else
       render("donations/new.html.erb")
     end
+
   end
 
   def edit
@@ -44,7 +49,7 @@ class DonationsController < ApplicationController
     @donation = Donation.find(params[:id])
 
     @donation.user_id = params[:user_id]
-    @donation.charity_id = Charity.where(:name => params[:charity_name]).pluck("id")
+    @donation.charity_id = Charity.find_by_name(params[:charity_name]).id
     @donation.amount = params[:amount]
     @donation.frequency = params[:frequency]
 
@@ -68,4 +73,5 @@ class DonationsController < ApplicationController
       redirect_to(:back, :notice => "Donation deleted.")
     end
   end
+
 end

@@ -27,22 +27,19 @@
       <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @donation.user_id %>">
     </div>
 
-    <!-- Label and input for charity_name -->
+    <!-- Label and input for charity name -->
     <div class="form-group">
-      <label for="charity_name" class="control-label">
+      <label for="amount" class="control-label">
         Charity
       </label>
 
-      <select name = "charity_name">
-        <%Charity.all.each do |charity|%>
-        <option value="<%=charity.name%>"><%=charity.name%>
-        </option>
+      <select id="charity_name" name="charity_name" class="form-control" placeholder="Charity">
+        <% Charity.all.each do |charity| %>
+        <option> <%=charity.name%> </option>
         <%end%>
       </select>
     </div>
 
-    <!-- Input for charity_id -->
-    <!-- <input type="hidden" id="charity_id" name="charity_id" value="<%=Charity.where(:name => @donation.charity.name).pluck("id")%>"> -->
 
     <!-- Label and input for amount -->
     <div class="form-group">
@@ -60,6 +57,20 @@
       </label>
 
       <input type="text" id="frequency" name="frequency" placeholder="Frequency" class="form-control" value="<%= @donation.frequency %>">
+    </div>
+
+    <!-- Label and input for frequency -->
+    <div class="form-group">
+      <label for="frequency" class="control-label">
+        Frequency
+      </label>
+
+      <select id="frequency" name="frequency" placeholder="<%=@donation.frequency%>" class="form-control" value="<%= @donation.frequency %>">
+        <option> Once </option>
+        <option> Daily </option>
+        <option> Weekly </option>
+        <option> Monthly </option>
+      </select>
     </div>
 
     <button class="btn btn-warning">

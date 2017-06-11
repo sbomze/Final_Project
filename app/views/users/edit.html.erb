@@ -93,11 +93,13 @@
 
       <!-- Label and input for state_province -->
       <div class="form-group">
-        <label for="state_province" class="control-label">
+        <label for="state" class="control-label">
           State
         </label>
 
-        <input type="text" id="state_province" name="state_province" placeholder="State province" class="form-control" value="<%= @user.state_province %>">
+        <p>
+          <%= select_tag :state_province, options_for_select(us_states), :class => "full-width has-padding has-border" %>
+        </p>
       </div>
 
       <!-- Label and input for country -->

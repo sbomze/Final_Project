@@ -6,8 +6,8 @@ background-size: 250px;
 </style>
 
 <!-- Validation failure messages -->
-<% if $user.errors.any? %>
-<% $user.errors.full_messages.each do |message| %>
+<% if @user.errors.any? %>
+<% @user.errors.full_messages.each do |message| %>
 <div class="alert alert-dismissable alert-danger">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   <%= message %>
@@ -35,7 +35,7 @@ background-size: 250px;
           First name
         </label>
 
-        <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="<%= $user.first_name %>">
+        <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="<%= @user.first_name %>">
       </div>
 
       <!-- Label and input for last_name -->
@@ -44,7 +44,7 @@ background-size: 250px;
           Last name
         </label>
 
-        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= $user.last_name %>">
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @user.last_name %>">
       </div>
 
       <!-- Label and input for user_name -->
@@ -53,7 +53,7 @@ background-size: 250px;
           User name
         </label>
 
-        <input type="text" id="user_name" name="user_name" placeholder="User name" class="form-control" value="<%= $user.user_name %>">
+        <input type="text" id="user_name" name="user_name" placeholder="User name" class="form-control" value="<%= @user.user_name %>">
       </div>
 
       <!-- Label and input for user_name -->
@@ -69,7 +69,7 @@ background-size: 250px;
           Email
         </label>
 
-        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= $user.email %>">
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @user.email %>">
       </div>
 
       <!-- Label and input for zip_code -->
@@ -78,7 +78,7 @@ background-size: 250px;
           Zip code
         </label>
 
-        <input type="text" id="zip_code" name="zip_code" placeholder="Zip code" class="form-control" value="<%= $user.zip_code %>">
+        <input type="text" id="zip_code" name="zip_code" placeholder="Zip code" class="form-control" value="<%= @user.zip_code %>">
       </div>
 
       <!-- Label and input for address -->
@@ -87,7 +87,7 @@ background-size: 250px;
           Address
         </label>
 
-        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= $user.address %>">
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @user.address %>">
       </div>
 
       <!-- Label and input for address_2 -->
@@ -96,7 +96,7 @@ background-size: 250px;
           Address 2
         </label>
 
-        <input type="text" id="address_2" name="address_2" placeholder="Address 2" class="form-control" value="<%= $user.address_2 %>">
+        <input type="text" id="address_2" name="address_2" placeholder="Address 2" class="form-control" value="<%= @user.address_2 %>">
       </div>
 
       <!-- Label and input for city -->
@@ -105,7 +105,7 @@ background-size: 250px;
           City
         </label>
 
-        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= $user.city %>">
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @user.city %>">
       </div>
 
       <!-- Label and input for state_province -->
@@ -114,7 +114,7 @@ background-size: 250px;
           State
         </label>
 
-        <input type="text" id="state_province" name="state_province" placeholder="State province" class="form-control" value="<%= $user.state_province %>">
+        <input type="text" id="state_province" name="state_province" placeholder="State province" class="form-control" value="<%= @user.state_province %>">
       </div>
 
       <!-- Label and input for country -->
@@ -123,7 +123,7 @@ background-size: 250px;
           Country
         </label>
 
-        <input type="text" id="country" name="country" placeholder="Country" class="form-control" value="<%= $user.country %>">
+        <input type="text" id="country" name="country" placeholder="Country" class="form-control" value="<%= @user.country %>">
       </div>
 
       <!-- Label and input for card_number -->
@@ -132,7 +132,7 @@ background-size: 250px;
           Card number
         </label>
 
-        <input type="text" id="card_number" name="card_number" placeholder="Card number" class="form-control" value="<%= $user.card_number %>">
+        <input type="text" id="card_number" name="card_number" placeholder="Card number" class="form-control" value="<%= @user.card_number %>">
       </div>
 
       <p>
@@ -149,7 +149,7 @@ background-size: 250px;
           Security code
         </label>
 
-        <input type="text" id="security_code" name="security_code" placeholder="Security code" class="form-control" value="<%= $user.security_code %>">
+        <input type="text" id="security_code" name="security_code" placeholder="Security code" class="form-control" value="<%= @user.security_code %>">
       </div>
 
       <button class="btn btn-success">

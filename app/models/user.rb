@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
   # devise :database_authenticatable, :registerable,
   #        :recoverable, :rememberable, :trackable, :validatable
   # Include default devise modules. Others available are:
@@ -15,7 +19,7 @@ class User < ApplicationRecord
   # attr_accessor :user_name, :email, :password, :password_confirmation
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-  #Validations
+  # Validations
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :user_name, :presence => true, :uniqueness => true, :length => { :in => 3..20 }

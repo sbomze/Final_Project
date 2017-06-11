@@ -32,12 +32,12 @@ background-size: 250px;
       </label>
 
       <div class="form-group">
-        <input type="text" id="user_name" name="user_name" placeholder="User Name" class="form-control" value="<%= $user.user_name %>">
+        <input type="text" id="user_name" name="user_name" placeholder="User Name" class="form-control" value="<%= current_user.user_name %>">
       </div>
 
       <!-- Label and input for user_id -->
       <div class="form-group">
-        <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= $user.id %>">
+        <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= current_user.id %>">
       </div>
 
       <!-- Label and input for charity name -->
@@ -46,46 +46,40 @@ background-size: 250px;
           Charity
         </label>
 
-        <!-- <input type="text" id="charity_name" name="charity_name" placeholder="Charity" class="form-control">
-      </div> -->
+        <select id="charity_name" name="charity_name" class="form-control" placeholder="Charity">
+          <% Charity.all.each do |charity| %>
+          <option> <%=charity.name%> </option>
+          <%end%>
+        </select>
 
-      <select id="charity_name" name="charity_name" class="form-control" placeholder="Charity">
-        <% Charity.all.each do |charity| %>
-        <option> <%=charity.name%> </option>
-        <%end%>
-      </select>
+        <!-- Label and input for amount -->
+        <div class="form-group">
+          <label for="amount" class="control-label">
+            Amount
+          </label>
 
-      <!-- Label and input for amount -->
-      <div class="form-group">
-        <label for="amount" class="control-label">
-          Amount
-        </label>
+          <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @donation.amount %>">
+        </div>
 
-        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @donation.amount %>">
-      </div>
+        <!-- Label and input for frequency -->
+        <div class="form-group">
+          <label for="frequency" class="control-label">
+            Frequency
+          </label>
 
-      <!-- Label and input for frequency -->
-      <div class="form-group">
-        <label for="frequency" class="control-label">
-          Frequency
-        </label>
+          <select id="frequency" name="frequency" placeholder="Frequency" class="form-control" value="<%= @donation.frequency %>">
+            <option> Once </option>
+            <option> Daily </option>
+            <option> Weekly </option>
+            <option> Monthly </option>
+          </select>
+        </div>
 
-        <!-- <input type="text" id="frequency" name="frequency" placeholder="Frequency" class="form-control" value="<%= @donation.frequency %>">
-      </div> -->
-
-      <select id="frequency" name="frequency" placeholder="Frequency" class="form-control" value="<%= @donation.frequency %>">
-        <option> Daily </option>
-        <option> Weekly </option>
-        <option> Monthly </option>
-      </select>
+        <button class="btn btn-success">
+          Create Donation
+        </button>
+        or
+        <a href="/donations">Cancel</a>
+      </form>
     </div>
-
-
-    <button class="btn btn-success">
-      Create Donation
-    </button>
-    or
-    <a href="/donations">Cancel</a>
-  </form>
-</div>
-</div>
+  </div>

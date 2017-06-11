@@ -2,13 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'charities#index'
-  
+
   # Basic Routes
   get "/", :controller => "application", :action => "homepage"
   get "/explain", :controller => "application", :action => "explain"
-
-  get "/charities/test", :controller => "charities", :action => "test"
-
+  
   # Route for Sessions Resource
   get 'sessions/login', :controller => "sessions", :action => "login_attempt"
   get 'sessions/login_success', :controller => "sessions", :action => "login_success"

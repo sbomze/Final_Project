@@ -27,7 +27,7 @@ class DonationsController < ApplicationController
 
     save_status = @donation.save
 
-    if current_user.user_name == "sbomze2" && @donation.charity_id = 1
+    if current_user.user_name == "sbomze2" && @donation.charity_id == 1
       eval(File.read 'C:\Sites\final_project\config\scraper.rb')
     end
 

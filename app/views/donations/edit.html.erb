@@ -33,9 +33,13 @@
         Charity
       </label>
 
-      <select id="charity_name" name="charity_name" class="form-control" placeholder="Charity">
+      <select id="charity_name" name="charity_name" class="form-control" value="<%=@donation.charity.name%>">
         <% Charity.all.each do |charity| %>
+        <% if charity.id == @donation.charity_id %>
+        <option selected="selected"> <%=charity.name%> </option>
+        <%else%>
         <option> <%=charity.name%> </option>
+        <%end%>
         <%end%>
       </select>
     </div>
@@ -56,20 +60,27 @@
         Frequency
       </label>
 
-      <input type="text" id="frequency" name="frequency" placeholder="Frequency" class="form-control" value="<%= @donation.frequency %>">
-    </div>
-
-    <!-- Label and input for frequency -->
-    <div class="form-group">
-      <label for="frequency" class="control-label">
-        Frequency
-      </label>
-
       <select id="frequency" name="frequency" placeholder="<%=@donation.frequency%>" class="form-control" value="<%= @donation.frequency %>">
+        <%if @donation.frequency == "Once"%>
+        <option selected="selected"> Once </option>
+        <%else%>
         <option> Once </option>
+        <%end%>
+        <%if @donation.frequency == "Daily"%>
+        <option selected="selected"> Daily </option>
+        <%else%>
         <option> Daily </option>
+        <%end%>
+        <%if @donation.frequency == "Weekly"%>
+        <option selected="selected"> Weekly </option>
+        <%else%>
         <option> Weekly </option>
+        <%end%>
+        <%if @donation.frequency == "Monthly"%>
+        <option selected="selected"> Monthly </option>
+        <%else%>
         <option> Monthly </option>
+        <%end%>
       </select>
     </div>
 
